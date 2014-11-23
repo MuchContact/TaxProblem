@@ -5,11 +5,13 @@ import java.text.NumberFormat;
 
 public class NumberFormater {
 
-	public double roundWith2Decimals(double number) {
+	public static double roundWith2Decimals(double number) {
+		return roundWithDecimals(2, number);
+	}
+	
+	public static double roundWithDecimals(int decimalNum, double number) {
 		NumberFormat nf = NumberFormat.getInstance();
-		nf.setMaximumFractionDigits(2);
-		nf.setMinimumFractionDigits(2);
+		nf.setMaximumFractionDigits(decimalNum);
 		return new BigDecimal(nf.format(number)).doubleValue();
 	}
-
 }

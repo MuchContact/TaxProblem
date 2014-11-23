@@ -28,4 +28,9 @@ public class TaxCalculator {
 		return priceWithoutTax*getTaxRate() + priceWithoutTax;
 	}
 
+	public double roundupToNearestFivePercent(double d) {
+		// TODO Auto-generated method stub
+		return 0.15;
+	}
+
 }

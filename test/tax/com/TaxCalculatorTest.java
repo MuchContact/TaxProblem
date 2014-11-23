@@ -32,33 +32,17 @@ public class TaxCalculatorTest {
 		tc.setExempted(true);
 		Assert.assertEquals(.00, tc.getTaxRate(), .001);
 	}
-	
 	@Test
-	public void get_shelf_price_at_20_89_given_normal_item_at_18_99(){
+	public void get_priceWithTax_at_20_89_given_normal_item_at_18_99(){
 		TaxCalculator tc = new TaxCalculator();
 		tc.setImported(false);
 		tc.setExempted(false);
 		Assert.assertEquals(20.89, tc.getShelfPrice(18.99), .001);
 	}
-//	@Test
-//	public void get_32_19_given_imported_and_unexempted_item_at_27_99(){
-//		TaxCalculator tc = new TaxCalculator();
-//		tr.setImported(false);
-//		tr.setExempted(false);
-//		Assert.assertEquals(20.89, tr.getShelfPrice(18.99), .001);
-//	}
-//	@Test
-//	public void get_20_89_given_normal_item_at_18_99(){
-//		TaxCalculator tc = new TaxCalculator();
-//		tr.setImported(false);
-//		tr.setExempted(false);
-//		Assert.assertEquals(20.89, tr.getShelfPrice(18.99), .001);
-//	}
-//	@Test
-//	public void get_20_89_given_normal_item_at_18_99(){
-//		TaxCalculator tc = new TaxCalculator();
-//		tr.setImported(false);
-//		tr.setExempted(false);
-//		Assert.assertEquals(20.89, tr.getShelfPrice(18.99), .001);
-//	}
+	@Test
+	public void round_0_13_upToNearest_0_05_return_0_15(){
+		TaxCalculator tc = new TaxCalculator();
+		Assert.assertEquals(.15, tc.roundupToNearestFivePercent(.13), .001);
+	}
+
 }

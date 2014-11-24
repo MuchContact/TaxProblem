@@ -18,7 +18,8 @@ public class RegItemParser extends Parser{
 		exemptedDic.add("pills");
 		exemptedDic.add("book");
 	}
-	
+	public RegItemParser() {
+	}
 	public RegItemParser(String source) {
 		this.source = source;
 	}

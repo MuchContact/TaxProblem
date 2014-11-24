@@ -7,12 +7,18 @@ public class Cart {
 	private static final String newLine="\r\n";
 	
 	private List<Item> items;
+
+	private Parser parser;
 	
-	public Cart() {
+	public Cart(Parser parser) {
+		if(parser==null)
+			throw new IllegalArgumentException("Error: Parser is null.");
+		
+		items = new ArrayList<Item>();
+		this.parser = parser;
 	}
 	public Cart add(String source) {
-		items = new ArrayList<Item>();
-		RegItemParser parser = new RegItemParser(source);
+		parser.setTarget(source);
 		Bean bean = parser.parseToBean();
 		items.add(Item.createFromBean(bean));
 		return this;

@@ -5,7 +5,8 @@ import org.junit.Test;
 
 public class TaxCalculatorTest {
 	public TaxCalculator makeCalc(){
-		return new TaxCalculator();
+		Roundup round = new RoundupToNearestFivePercentImpl();
+		return new TaxCalculator(round);
 	}
 	@Test
 	public void get_tax_rate_at_0_15_when_item_is_imported_and_unexempted(){
@@ -44,27 +45,22 @@ public class TaxCalculatorTest {
 //	}
 	@Test
 	public void round_0_13_upToNearest_0_05_return_0_15(){
-		Roundup round = new RoundupToNearestFivePercentImpl();
-		Assert.assertEquals(.15, makeCalc().roundup(round, .13), .001);
+		Assert.assertEquals(.15, makeCalc().roundup(.13), .001);
 	}	
 	@Test
 	public void round_0_16_upToNearest_0_05_return_0_20(){
-		Roundup round = new RoundupToNearestFivePercentImpl();
-		Assert.assertEquals(.20, makeCalc().roundup(round, .16), .001);
+		Assert.assertEquals(.20, makeCalc().roundup(.16), .001);
 	}
 	@Test
 	public void round_0_15_upToNearest_0_05_return_0_15(){
-		Roundup round = new RoundupToNearestFivePercentImpl();
-		Assert.assertEquals(.15, makeCalc().roundup(round, .15), .001);
+		Assert.assertEquals(.15, makeCalc().roundup(.15), .001);
 	}
 	@Test
 	public void round_0_151_upToNearest_0_05_return_0_20(){
-		Roundup round = new RoundupToNearestFivePercentImpl();
-		Assert.assertEquals(.20, makeCalc().roundup(round, .151), .001);
+		Assert.assertEquals(.20, makeCalc().roundup(.151), .001);
 	}
 	@Test
 	public void round_0_624_upToNearest_0_05_return_0_65(){
-		Roundup round = new RoundupToNearestFivePercentImpl();
-		Assert.assertEquals(.65, makeCalc().roundup(round, .624), .001);
+		Assert.assertEquals(.65, makeCalc().roundup(.624), .001);
 	}
 }

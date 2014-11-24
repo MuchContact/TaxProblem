@@ -1,6 +1,6 @@
 package tax.com;
 
-public class TaxCalculator {
+public class TaxCalculator implements TaxCalculable{
 	private boolean imported = false;
 	private boolean exempted = false;
 	private Roundup round;
@@ -40,5 +40,9 @@ public class TaxCalculator {
 
 	public double roundup(double number) {
 		return round.roundup(number);
+	}
+
+	public double getTax(double priceWithoutTax) {
+		return roundup(priceWithoutTax*getTaxRate());
 	}
 }

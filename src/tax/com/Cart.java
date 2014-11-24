@@ -6,7 +6,7 @@ import java.util.List;
 public class Cart {
 	private static final String newLine="\r\n";
 	
-	private List<Item> items;
+	private List<Purchasable> items;
 
 	private Parser parser;
 	
@@ -14,7 +14,7 @@ public class Cart {
 		if(parser==null)
 			throw new IllegalArgumentException("Error: Parser is null.");
 		
-		items = new ArrayList<Item>();
+		items = new ArrayList<Purchasable>();
 		this.parser = parser;
 	}
 	public Cart add(String source) {
@@ -33,7 +33,7 @@ public class Cart {
 	}
 	private String itemsDetail() {
 		StringBuilder sb = new StringBuilder();
-		for(Item item:items){
+		for(Purchasable item:items){
 			sb.append(item.detail()+newLine);
 		}
 		return sb.toString();
@@ -46,14 +46,14 @@ public class Cart {
 	}
 	private double getTotalPrice() {
 		double totalFee=0;
-		for(Item item:items){
+		for(Purchasable item:items){
 			totalFee += item.getShelfPrice();
 		}
 		return totalFee;
 	}
 	private double getTotalTax() {
 		double totalTax=0;
-		for(Item item:items){
+		for(Purchasable item:items){
 			totalTax += item.getTax();
 		}
 		return totalTax;

@@ -1,6 +1,6 @@
 package tax.com;
 
-public class Item{
+public class Item implements Purchasable{
 
 	private Good good;
 	private int quantity;
@@ -28,7 +28,7 @@ public class Item{
 						tc)
 				, bean.getQuantity());
 	}
-
+	@Override
 	public String detail() {
 		return String.format("%d%s %s: %.2f", 
 				quantity, good.getDecoration(), 

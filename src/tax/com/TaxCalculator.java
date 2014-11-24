@@ -34,7 +34,8 @@ public class TaxCalculator {
 	}
 	
 	public double getShelfPrice(double priceWithoutTax) {
-		return priceWithoutTax*getTaxRate() + priceWithoutTax;
+		return roundup(priceWithoutTax*getTaxRate()) 
+				+ priceWithoutTax;
 	}
 
 	public double roundup(double number) {

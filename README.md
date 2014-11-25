@@ -48,3 +48,11 @@ Write an application that prints out the receipt details for these shopping bask
 >Total: 74.68  
   
 ***
+### Changeable Parts Designed
+- `Parser` - where the input is parsed into a bean which is used by `Cart` as a middle data structure.
+- - `RegItemParser` - provides an specific implementation using Regular Expression.
+- `TaxCalculable` - defines the essential Calculator interfaces to implement.
+- -`TaxCalculator` - this is an specific implementation of `TaxCalculable`
+- `Roundup` - defines roundup interface.
+- - `RoundupToNearestFivePercentImpl` - this is an implementation of `Roundup`, round up number to the upper nearest 0.05
+- `Purchasable` - an abstract interface for all things purchasable, `Cart` can manage a list of specific purchasable objects, like `Item` `Good`.

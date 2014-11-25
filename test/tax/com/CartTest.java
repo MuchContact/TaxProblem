@@ -5,9 +5,12 @@ import org.junit.Test;
 
 
 public class CartTest {
+	public Cart makeCart(){
+		return new Cart(new RegItemParser());
+	}
 	@Test
 	public void checkReceiptGivenItemsOfInput1(){
-		Cart cart = new Cart(new RegItemParser());
+		Cart cart = makeCart();
 		cart.add("1 book at 12.49")
 			.add("1 music CD at 14.99")
 			.add("1 chocolate bar at 0.85");
@@ -19,7 +22,7 @@ public class CartTest {
 	}
 	@Test
 	public void checkReceiptGivenItemsOfInput2(){
-		Cart cart = new Cart(new RegItemParser());
+		Cart cart = makeCart();
 		cart.add("1 imported box of chocolates at 10.00")
 			.add("1 imported bottle of perfume at 47.50");
 		Assert.assertTrue(cart.toString().contains("1 imported box of chocolates: 10.50"));
@@ -29,8 +32,7 @@ public class CartTest {
 	}
 	@Test
 	public void checkReceiptGivenItemsOfInput3(){
-		Parser parser = new RegItemParser();
-		Cart cart = new Cart(parser);
+		Cart cart = makeCart();
 		cart.add("1 imported bottle of perfume at 27.99")
 			.add("1 bottle of perfume at 18.99")
 			.add("1 packet of headache pills at 9.75")

@@ -8,8 +8,6 @@ import java.util.regex.Pattern;
 public class RegItemParser extends Parser{
 	private static final String PATTERN = "([0-9]+)(.+ of)?(.+) at\\s+([0-9]+\\.[0-9]+)";
 	
-	//private String source;
-	
 	private static List<String> exemptedDic;
 	
 	static {
@@ -17,6 +15,7 @@ public class RegItemParser extends Parser{
 		exemptedDic.add("chocolate");
 		exemptedDic.add("pills");
 		exemptedDic.add("book");
+		//TODO load customer dictionary
 	}
 	public RegItemParser() {
 	}

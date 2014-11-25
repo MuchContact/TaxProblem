@@ -50,11 +50,11 @@ Write an application that prints out the receipt details for these shopping bask
 ***
 ### Changeable Parts Designed
 - `Parser` - where the input is parsed into a bean which is used by `Cart` as a middle data structure.
-- - `RegItemParser` - provides an specific implementation using Regular Expression.
+- - -`RegItemParser` - provides an specific implementation using Regular Expression.
 - `TaxCalculable` - defines the essential Calculator interfaces to implement.
-- -`TaxCalculator` - this is an specific implementation of `TaxCalculable`
+- - -`TaxCalculator` - this is an specific implementation of `TaxCalculable`
 - `Roundup` - defines roundup interface.
-- - `RoundupToNearestFivePercentImpl` - this is an implementation of `Roundup`, round up number to the upper nearest 0.05
+- - -`RoundupToNearestFivePercentImpl` - this is an implementation of `Roundup`, round up number to the upper nearest 0.05
 - `Purchasable` - an abstract interface for all things purchasable, `Cart` can manage a list of specific purchasable objects, like `Item` `Good`.
 
 ***
@@ -66,7 +66,7 @@ Write an application that prints out the receipt details for these shopping bask
 		- examples: rounding up to 0.20 given 0.151
 	- rules for numbers which is consisted of n 0.05
 		- examples: rounding up to 0.15 given 0.15
-		……
+		- ……
 - tax rate
 	- get 10% given normal (unimported and unexempted) good types
 	- get 0% given unimported and exempted good types
@@ -87,16 +87,16 @@ Write an application that prints out the receipt details for these shopping bask
 	- rules for parsing name
 		- examples: get "book" given "1 book at 12.49"
 		- examples: get "headache pills" given "1 packet of headache pills at 9.75"
-		...
+		- ...
 	- rules for parsing unit
 		- examples: get "bottle" given "1 bottle of perfume at 18.99"
 		- examples: get "" given "1 chocolate bar at 0.85"
-		...
+		- ...
 	- rules for parsing price
-		...
+		- ...
 	- rules for parsing quantity
-		...
+		- ...
 	- rules for parsing imported
-		...
+		- ...
 	- rules for parsing exempted
-		...
+		- ...

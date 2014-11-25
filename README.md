@@ -56,6 +56,7 @@ Write an application that prints out the receipt details for these shopping bask
 - `Roundup` - defines roundup interface.
 - - `RoundupToNearestFivePercentImpl` - this is an implementation of `Roundup`, round up number to the upper nearest 0.05
 - `Purchasable` - an abstract interface for all things purchasable, `Cart` can manage a list of specific purchasable objects, like `Item` `Good`.
+
 ***
 ### Tests
 - rounding
@@ -92,6 +93,10 @@ Write an application that prints out the receipt details for these shopping bask
 		- examples: get "" given "1 chocolate bar at 0.85"
 		...
 	- rules for parsing price
+		...
 	- rules for parsing quantity
+		...
 	- rules for parsing imported
+		...
 	- rules for parsing exempted
+		...

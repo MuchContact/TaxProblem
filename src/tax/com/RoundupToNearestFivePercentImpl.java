@@ -21,10 +21,16 @@ public class RoundupToNearestFivePercentImpl implements Roundup {
 		int result=(int)(number*100);
 		int lastDigit=result%10;
 		if(lastDigit>=5){
-			result = result-(lastDigit-5);
+			result = setLastDigitToTarget(result, 5);
 		}else{
-			result = result-(lastDigit-0);
+			result = setLastDigitToTarget(result, 0);
 		}
 		return result/100d;
+	}
+	private int setLastDigitToTarget(int number, int target) {
+		if(target<0||target>9)
+			throw new IllegalArgumentException("The second number should be in [0-9].");
+		int lastDigit=number%10;
+		return number-(lastDigit-target);
 	}
 }

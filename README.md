@@ -56,3 +56,42 @@ Write an application that prints out the receipt details for these shopping bask
 - `Roundup` - defines roundup interface.
 - - `RoundupToNearestFivePercentImpl` - this is an implementation of `Roundup`, round up number to the upper nearest 0.05
 - `Purchasable` - an abstract interface for all things purchasable, `Cart` can manage a list of specific purchasable objects, like `Item` `Good`.
+***
+### Tests
+- rounding
+	- rules for numbers which is not consisted of n 0.05 exactly
+		- examples: rounding up to 0.15 given 0.13
+		- examples: rounding up to 0.20 given 0.16
+		- examples: rounding up to 0.20 given 0.151
+	- rules for numbers which is consisted of n 0.05
+		- examples: rounding up to 0.15 given 0.15
+		……
+- tax rate
+	- get 10% given normal (unimported and unexempted) good types
+	- get 0% given unimported and exempted good types
+	- get 15% given imported and unexempted good types
+	- get 5% given imported and exempted good types
+- tax
+	- rules for unimported and unexempted goods
+		- examples: charge 20.89 given (1 bottle of perfume) 18.99
+		- examples: charge 16.49 given (1 music CD) 14.99
+	- rules for imported and unexempted goods
+		- examples: charge 32.19 given (1 imported bottle of perfume) 27.99 
+	- rules for unimported and exempted goods
+		- examples: charge 12.49 given (one book) 12.49
+		- examples: charge 0.85 given (1 chocolate bar) 0.85
+	- rules for imported and exempted goods
+		- examples: charge 11.85 given (1 box of imported chocolates) 11.25 
+- Parser
+	- rules for parsing name
+		- examples: get "book" given "1 book at 12.49"
+		- examples: get "headache pills" given "1 packet of headache pills at 9.75"
+		...
+	- rules for parsing unit
+		- examples: get "bottle" given "1 bottle of perfume at 18.99"
+		- examples: get "" given "1 chocolate bar at 0.85"
+		...
+	- rules for parsing price
+	- rules for parsing quantity
+	- rules for parsing imported
+	- rules for parsing exempted

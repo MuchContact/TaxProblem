@@ -22,4 +22,5 @@ public abstract class Parser {
 		bean.setQuantity(parseQuantity());
 		return bean;
 	}
+	public abstract Purchasable parseToPurchase();
 }

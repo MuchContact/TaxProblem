@@ -40,7 +40,18 @@ public class Good implements Purchasable{
 
 	@Override
 	public String detail() {
-		// TODO Auto-generated method stub
-		return null;
+		return String.format("1%s %s: %.2f",
+				getDecoration(), 
+				getName(), getShelfPrice());
+	}
+
+	@Override
+	public Purchasable newInstanceFromBean(Bean bean) {
+		TaxCalculable tc = TaxCalculatorFactory.getTaxCalcInstance(bean.isImported(), bean.isExempted());
+		return new Good(bean.getName(),
+						bean.getUnit(),
+						bean.getPrice(),
+						bean.isImported(),
+						tc);
 	}
 }

@@ -19,8 +19,7 @@ public class Cart {
 	}
 	public Cart add(String source) {
 		parser.setTarget(source);
-		Bean bean = parser.parseToBean();
-		items.add(Item.createFromBean(bean));
+		items.add(parser.parseToPurchase());
 		return this;
 	}
 	@Override

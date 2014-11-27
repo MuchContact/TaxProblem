@@ -17,8 +17,16 @@ public class Item implements Purchasable{
 	public double getTax() {
 		return quantity*good.getTax();
 	}
+	
+	@Override
+	public String detail() {
+		return String.format("%d%s %s: %.2f", 
+				quantity, good.getDecoration(), 
+				good.getName(), getShelfPrice());
+	}
 
-	public static Item createFromBean(Bean bean) {
+	@Override
+	public Purchasable newInstanceFromBean(Bean bean) {
 		TaxCalculable tc = TaxCalculatorFactory.getTaxCalcInstance(bean.isImported(), bean.isExempted());
 		return new Item(
 				new Good(bean.getName(),
@@ -27,11 +35,5 @@ public class Item implements Purchasable{
 						bean.isImported(),
 						tc)
 				, bean.getQuantity());
-	}
-	@Override
-	public String detail() {
-		return String.format("%d%s %s: %.2f", 
-				quantity, good.getDecoration(), 
-				good.getName(), getShelfPrice());
 	}
 }

@@ -64,4 +64,9 @@ public class RegItemParser extends Parser{
 		
 		return source.contains("imported");
 	}
+	@Override
+	public Purchasable parseToPurchase() {
+		Purchasable item = new Item(null, 0);
+		return item.newInstanceFromBean(parseToBean());
+	}
 }
